@@ -158,7 +158,6 @@ def split_mp3(gc):
     start = _get_time(gc['start_time'])
     end   = _get_time(gc['end_time'])
     name = re.match(r'(.*).lrc$', song_name).group(1)
-    print start, end
     cmd = 'ffmpeg -i "%s.mp3" -ss %s -t %s -acodec copy ./part/"%s.mp3"'%(name, start, end-start, name)
     print cmd
     os.system(cmd)
